@@ -1,0 +1,28 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.0.2
+
+jobs:
+  test_front_end:
+    working_directory: ~/app
+    executor: node/default
+    steps:
+      - checkout:
+          path: ~app
+      - run: npm install
+      - run: npm test
+  build_front_end:
+    working_directory: ~/app
+    executor: node/default
+    steps:
+      - checkout:
+          path: ~app
+      - run: npm install
+      - run: npm run build
+
+workflows:
+  my-workflow:
+    jobs:
+      - test_front_end
+      - build_front_end
