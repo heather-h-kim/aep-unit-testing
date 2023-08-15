@@ -9,7 +9,7 @@ jobs:
     executor: node/default
     steps:
       - checkout:
-          path: ~app
+          path: ~/app
       - run: npm install
       - run: npm test
   build_front_end:
@@ -17,7 +17,7 @@ jobs:
     executor: node/default
     steps:
       - checkout:
-          path: ~app
+          path: ~/app
       - run: npm install
       - run: npm run build
 
